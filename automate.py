@@ -6,20 +6,16 @@ import time
 def jobone():
 	c = twint.Config()
 	#tweets that contain these texts 
-	c.Search = 'raised series A'
-	c.Search = 'raised series B'
+	c.Search = '$OPEN'
+	c.Search = '$SNAP'
 	#timeframe 
-	c.Since = '2020-01-01'
+	c.Since = '2020-12-10'
 	#language of tweets 
 	c.Lang = "en"
 	#c.Custom = ["date", "time", "username", "tweet", "link", "likes", "retweets", "replies", "mentions", "hashtags", "location"]
 	c.Limit = 2000
-	#store to csv 
-	#c.Output = "datascience6.csv"
-	#c.Store_csv = True
 	#store in elastic search instance
-	c.Database = "datascience1.db"
-	#run
+	c.Elasticsearch = "http://localhost:9200"
 	twint.run.Search(c)
 
 # def jobtwo():

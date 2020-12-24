@@ -11,3 +11,5 @@ schedule
 geopy
 fake-useragent
 googletransx
+pydantic 
+asyncpg 

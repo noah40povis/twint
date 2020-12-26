@@ -2,9 +2,11 @@
 
 from fastapi import Depends, FastAPI, HTTPException
 
-from database import *
+from .database import *
 
-
+"""
+Command line to launch api: uvicorn main:app --reload
+"""
 
 app = FastAPI(
     title= 'Tweet Stock Analysis',

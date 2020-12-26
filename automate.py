@@ -7,7 +7,11 @@ def jobone():
 	c = twint.Config()
 	#tweets that contain these texts 
 	c.Search = '$OPEN'
+	c.Search = '$MP'
 	c.Search = '$SNAP'
+	c.Search = '$INAQ'
+	c.Search = '$UUUU'
+	c.Search ='$MP'
 	#timeframe 
 	c.Since = '2020-12-10'
 	#language of tweets 
@@ -44,8 +48,8 @@ jobone()
 
 # run every minute(s), hour, day at, day of the week, day of the week and time. Use "#" to block out which ones you don't want to use.  Remove it to active. Also, replace "jobone" and "jobtwo" with your new function names (if applicable)
 
-schedule.every(1).minutes.do(jobone)
-#schedule.every().hour.do(jobone)
+#schedule.every(1).minutes.do(jobone)
+schedule.every().hour.do(jobone)
 # schedule.every().day.at("10:30").do(jobone)
 # schedule.every().monday.do(jobone)
 # schedule.every().wednesday.at("13:15").do(jobone)

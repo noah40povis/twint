@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-
+from fastapi.responses import JSONResponse
 # Importing Eland and low-level Elasticsearch clients for comparison
 import eland as ed
 from eland.conftest import *
@@ -8,17 +8,14 @@ from elasticsearch_dsl import Search, Q
 
 # Import pandas and numpy for data wrangling
 import pandas as pd
-import numpy as np
 
-# For pretty-printing
-import json
 from transformers import pipeline 
 
 
 router = APIRouter()
 
 @router.post('/sentiment/{sentiment_analysis}')
-async def viz(text: str):
+async def classification(text: str):
     # name of the index we want to query
     index_name = 'twinttweets' 
 
@@ -33,6 +30,6 @@ async def viz(text: str):
     tweet = data['tweet'][80]
     nlp = pipeline("sentiment-analysis")
     result = nlp(tweet)[0]
-    return print(f"label: {result['label']}, with score: {round(result['score'], 4)}")
+    return f"label: {result['label']}, with score: {round(result['score'], 4)}"
 
 

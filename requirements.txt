@@ -13,3 +13,4 @@ fake-useragent
 googletransx
 pydantic 
 asyncpg 
+eland 

@@ -2,7 +2,9 @@
 
 from fastapi import Depends, FastAPI, HTTPException
 
-from .database import *
+# from .database import *
+
+from tweet_app.api import sentiment
 
 """
 Command line to launch api: uvicorn main:app --reload
@@ -15,6 +17,7 @@ app = FastAPI(
     docs_url= '/',
 )
 
+app.include_router(sentiment.router)
 
 @app.get("/")
 def read_root():
@@ -25,6 +28,6 @@ def healthcheck():
     return "OK"
 
 
-# if __name__ == '__main__':
-#     uvicorn.run(app)
 
+if __name__ == '__main__':
+    uvicorn.run(app)
